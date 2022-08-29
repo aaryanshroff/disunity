@@ -1,6 +1,6 @@
 CXX = g++
 CXX_FLAGS = -std=c++14 -Wall -g -Iinclude -Llib -lsdl2
-OBJECTS = main.o
+OBJECTS = main.o game.o
 DEPENDS = ${OBJECTS:.o=.d}
 EXEC = pong
 
