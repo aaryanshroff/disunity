@@ -1,6 +1,6 @@
 CXX = g++
 CXX_FLAGS = -std=c++14 -Wall -g -Iinclude -Llib -lsdl2 -lsdl2_image
-OBJECTS = main.o game.o
+OBJECTS = main.o game.o texturemanager.o
 DEPENDS = ${OBJECTS:.o=.d}
 EXEC = pong.o
 

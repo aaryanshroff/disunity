@@ -1,6 +1,7 @@
 #include <iostream>         // std::cout
 #include <SDL2/SDL_image.h> // IMG_Load (not needed in game.h)
 #include "game.h"
+#include "texturemanager.h"
 using namespace std;
 
 bool Game::init(const char *title, int x, int y, int width, int height, SDL_WindowFlags flags)
@@ -42,32 +43,29 @@ bool Game::init(const char *title, int x, int y, int width, int height, SDL_Wind
     cout << "SDL_CreateRenderer success" << endl;
     SDL_SetRenderDrawColor(sdl_renderer, 255, 255, 255, 255);
 
+    if (!TheTextureManager::Instance()->load("assets/zombie_idle_sheet.png", "zombie", sdl_renderer))
+    {
+        cout << "TheTextureManager::Instance()->load() failed to load" << endl;
+        return false;
+    }
+
     running = true;
-
-    // Load Zombie spritesheet
-    SDL_Surface *tempSurface = IMG_Load("assets/zombie_idle_sheet.png");
-    // Convert surface to texture since textures use hardware acceleration
-    texture = SDL_CreateTextureFromSurface(sdl_renderer, tempSurface);
-    // Delete the temporary surface
-    SDL_FreeSurface(tempSurface);
-
-    destinationRectangle.w = sourceRectangle.w = 430;
-    destinationRectangle.h = sourceRectangle.h = 519;
-    destinationRectangle.x = sourceRectangle.x = 0;
-    destinationRectangle.y = sourceRectangle.y = 0;
 
     return true;
 }
 
 void Game::update()
 {
-    sourceRectangle.x = 430 * int(((SDL_GetTicks() / 100) % 15));
-}; // empty for now
+    currentFrame = int(((SDL_GetTicks() / 100) % 6));
+};
 
 void Game::render()
 {
     SDL_RenderClear(sdl_renderer);
-    SDL_RenderCopyEx(sdl_renderer, texture, &sourceRectangle, &destinationRectangle, 0, 0, SDL_FLIP_HORIZONTAL);
+
+    TheTextureManager::Instance()->draw("zombie", 0, 0, 430, 519, sdl_renderer, SDL_FLIP_NONE);
+    TheTextureManager::Instance()->drawFrame("zombie", 100, 100, 430, 519, 1, currentFrame, sdl_renderer, SDL_FLIP_NONE);
+
     SDL_RenderPresent(sdl_renderer);
 }
 

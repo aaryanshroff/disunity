@@ -1,17 +1,15 @@
 #ifndef _GAME_H_
 #define _GAME_H_
 
-#include <SDL2/SDL.h>
+#include <SDL2/SDL.h> // cannot use forward declaration since SDL_Rect is not a pointer
 
 class Game
 {
     SDL_Window *sdl_window;
     SDL_Renderer *sdl_renderer;
-    SDL_Texture *texture;
-    SDL_Rect sourceRectangle;
-    SDL_Rect destinationRectangle;
 
     bool running;
+    int currentFrame;
 
 public:
     bool init(const char *title, int x, int y, int width, int height, SDL_WindowFlags flags);
