@@ -1,4 +1,5 @@
-#include <iostream>
+#include <iostream>         // std::cout
+#include <SDL2/SDL_image.h> // IMG_Load (not needed in game.h)
 #include "game.h"
 using namespace std;
 
@@ -43,14 +44,30 @@ bool Game::init(const char *title, int x, int y, int width, int height, SDL_Wind
 
     running = true;
 
+    // Load Zombie spritesheet
+    SDL_Surface *tempSurface = IMG_Load("assets/zombie_idle_sheet.png");
+    // Convert surface to texture since textures use hardware acceleration
+    texture = SDL_CreateTextureFromSurface(sdl_renderer, tempSurface);
+    // Delete the temporary surface
+    SDL_FreeSurface(tempSurface);
+
+    destinationRectangle.w = sourceRectangle.w = 430;
+    destinationRectangle.h = sourceRectangle.h = 519;
+    destinationRectangle.x = sourceRectangle.x = 0;
+    destinationRectangle.y = sourceRectangle.y = 0;
+
     return true;
 }
 
-void Game::update(){}; // empty for now
+void Game::update()
+{
+    sourceRectangle.x = 430 * int(((SDL_GetTicks() / 100) % 15));
+}; // empty for now
 
 void Game::render()
 {
     SDL_RenderClear(sdl_renderer);
+    SDL_RenderCopyEx(sdl_renderer, texture, &sourceRectangle, &destinationRectangle, 0, 0, SDL_FLIP_HORIZONTAL);
     SDL_RenderPresent(sdl_renderer);
 }
 

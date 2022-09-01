@@ -1,13 +1,15 @@
 #ifndef _GAME_H_
 #define _GAME_H_
 
-#include <memory>
 #include <SDL2/SDL.h>
 
 class Game
 {
     SDL_Window *sdl_window;
     SDL_Renderer *sdl_renderer;
+    SDL_Texture *texture;
+    SDL_Rect sourceRectangle;
+    SDL_Rect destinationRectangle;
 
     bool running;
 
