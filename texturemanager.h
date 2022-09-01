@@ -31,9 +31,9 @@ public:
     bool load(std::string filePath, std::string id, SDL_Renderer *renderer);
     // renders texture with `id` to renderer at position (x, y) with `width` and `height`
     // flips it along the axis specified by `flip`
-    void draw(std::string id, int x, int y, int width, int height, SDL_Renderer *renderer, SDL_RendererFlip flip);
+    void draw(std::string id, int x, int y, int width, int height, SDL_Renderer *renderer, SDL_RendererFlip flip = SDL_FLIP_NONE);
     // same as draw except renders the frame of a image (spritesheet) at `currentFrame` in row `currentRow`
-    void drawFrame(std::string id, int x, int y, int width, int height, int currentRow, int currentFrame, SDL_Renderer *renderer, SDL_RendererFlip flip);
+    void drawFrame(std::string id, int x, int y, int width, int height, int currentRow, int currentFrame, SDL_Renderer *renderer, SDL_RendererFlip flip = SDL_FLIP_NONE);
 };
 
 typedef TextureManager TheTextureManager;

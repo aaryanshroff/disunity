@@ -41,13 +41,26 @@ bool Game::init(const char *title, int x, int y, int width, int height, SDL_Wind
 
     // else successfully created renderer
     cout << "SDL_CreateRenderer success" << endl;
+
+    // window will be cleared to this colour on render()
     SDL_SetRenderDrawColor(sdl_renderer, 255, 255, 255, 255);
 
+    // Load textures
     if (!TheTextureManager::Instance()->load("assets/zombie_idle_sheet.png", "zombie", sdl_renderer))
     {
         cout << "TheTextureManager::Instance()->load() failed to load" << endl;
         return false;
     }
+
+    // AFTER loading textures, create game objects that use those textures (by referencing their ID. in this case, the ID is `zombie`)
+    GameObject *gameObject = new GameObject();
+    GameObject *player = new Player();
+
+    gameObject->load(100, 100, 430, 519, "zombie");
+    player->load(300, 300, 430, 519, "zombie");
+
+    gameObjects.push_back(gameObject);
+    gameObjects.push_back(player);
 
     running = true;
 
@@ -56,15 +69,20 @@ bool Game::init(const char *title, int x, int y, int width, int height, SDL_Wind
 
 void Game::update()
 {
-    currentFrame = int(((SDL_GetTicks() / 100) % 6));
+    for (auto &gameObject : gameObjects)
+    {
+        gameObject->update();
+    }
 };
 
 void Game::render()
 {
-    SDL_RenderClear(sdl_renderer);
+    SDL_RenderClear(sdl_renderer); // clear to the draw color set in init()
 
-    TheTextureManager::Instance()->draw("zombie", 0, 0, 430, 519, sdl_renderer, SDL_FLIP_NONE);
-    TheTextureManager::Instance()->drawFrame("zombie", 100, 100, 430, 519, 1, currentFrame, sdl_renderer, SDL_FLIP_NONE);
+    for (auto &gameObject : gameObjects)
+    {
+        gameObject->draw(sdl_renderer);
+    }
 
     SDL_RenderPresent(sdl_renderer);
 }

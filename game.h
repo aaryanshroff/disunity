@@ -2,11 +2,16 @@
 #define _GAME_H_
 
 #include <SDL2/SDL.h> // cannot use forward declaration since SDL_Rect is not a pointer
+#include <vector>
+#include "gameobject.h"
+#include "player.h"
 
 class Game
 {
     SDL_Window *sdl_window;
     SDL_Renderer *sdl_renderer;
+
+    std::vector<GameObject *> gameObjects;
 
     bool running;
     int currentFrame;
