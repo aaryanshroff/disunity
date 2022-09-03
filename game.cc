@@ -68,7 +68,7 @@ bool Game::init(const char *title, int x, int y, int width, int height, SDL_Wind
     }
 
     // AFTER loading textures, create game objects that use those textures (by referencing their ID. in this case, the ID is `zombie`)
-    gameObjects.push_back(new Player(new LoaderParams(100, 100, 128, 82, "animate")));
+    gameObjects.push_back(new Player(new LoaderParams(100, 100, 430, 519, "zombie")));
 
     running = true;
 
