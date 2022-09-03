@@ -1,8 +1,21 @@
 #include <iostream>         // std::cout
 #include <SDL2/SDL_image.h> // IMG_Load (not needed in game.h)
 #include "game.h"
+#include "gameobject.h"
+#include "loaderparams.h"
 #include "texturemanager.h"
 using namespace std;
+
+Game *Game::instance = nullptr;
+
+Game *Game::Instance()
+{
+    if (instance == nullptr)
+    {
+        instance = new Game();
+    }
+    return instance;
+}
 
 bool Game::init(const char *title, int x, int y, int width, int height, SDL_WindowFlags flags)
 {
@@ -53,14 +66,7 @@ bool Game::init(const char *title, int x, int y, int width, int height, SDL_Wind
     }
 
     // AFTER loading textures, create game objects that use those textures (by referencing their ID. in this case, the ID is `zombie`)
-    GameObject *gameObject = new GameObject();
-    GameObject *player = new Player();
-
-    gameObject->load(100, 100, 430, 519, "zombie");
-    player->load(300, 300, 430, 519, "zombie");
-
-    gameObjects.push_back(gameObject);
-    gameObjects.push_back(player);
+    gameObjects.push_back(new Player(new LoaderParams(100, 100, 128, 82, "animate")));
 
     running = true;
 
@@ -81,7 +87,7 @@ void Game::render()
 
     for (auto &gameObject : gameObjects)
     {
-        gameObject->draw(sdl_renderer);
+        gameObject->draw();
     }
 
     SDL_RenderPresent(sdl_renderer);

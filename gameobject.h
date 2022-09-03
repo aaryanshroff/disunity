@@ -4,28 +4,19 @@
 #include <string>
 
 // Forward declarations
-class SDL_Renderer;
+class LoaderParams;
 //
 
 class GameObject
 {
 protected:
-    std::string textureID;
-
-    int currentFrame;
-    int currentRow;
-
-    int x;
-    int y;
-
-    int width;
-    int height;
+    GameObject(const LoaderParams *params);
+    virtual ~GameObject();
 
 public:
-    virtual void load(int x, int y, int width, int height, std::string textureID);
-    virtual void draw(SDL_Renderer *renderer);
-    virtual void update();
-    virtual void clean();
+    virtual void draw() = 0;
+    virtual void update() = 0;
+    virtual void clean() = 0;
 };
 
 #endif

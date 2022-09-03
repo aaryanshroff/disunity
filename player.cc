@@ -1,24 +1,19 @@
 #include <iostream>
+#include <SDL2/SDL.h> // SDL_GetTicks()
 #include "player.h"
 using namespace std;
 
-void Player::load(int x, int y, int width, int height, string textureID)
-{
-    GameObject::load(x, y, width, height, textureID);
-}
+Player::Player(const LoaderParams *params) : SDLGameObject{params} {}
 
-void Player::draw(SDL_Renderer *renderer)
+void Player::draw()
 {
-    GameObject::draw(renderer);
+    SDLGameObject::draw();
 }
 
 void Player::update()
 {
     x -= 1;
+    currentFrame = int(((SDL_GetTicks() / 100) % 6));
 }
 
-void Player::clean()
-{
-    GameObject::clean();
-    cout << "clean player" << endl;
-}
+void Player::clean() {}
