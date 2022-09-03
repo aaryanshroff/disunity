@@ -17,6 +17,8 @@ Game *Game::Instance()
     return instance;
 }
 
+Game::Game(){};
+
 bool Game::init(const char *title, int x, int y, int width, int height, SDL_WindowFlags flags)
 {
     // returns 0 on success
@@ -121,4 +123,9 @@ void Game::clean()
 bool Game::isRunning() const
 {
     return running;
+}
+
+SDL_Renderer *Game::getRenderer() const
+{
+    return sdl_renderer;
 }

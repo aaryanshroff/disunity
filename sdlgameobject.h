@@ -4,9 +4,7 @@
 #include <string>
 #include "gameobject.h"
 
-// forward declarations
 class LoaderParams;
-//
 
 class SDLGameObject : public GameObject
 {
