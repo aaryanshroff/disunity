@@ -5,22 +5,18 @@
 #include "sdlgameobject.h"
 #include "texturemanager.h"
 
-SDLGameObject::SDLGameObject(const LoaderParams *params) : GameObject{params}
-{
-    x = params->getX();
-    y = params->getY();
-    width = params->getWidth();
-    height = params->getHeight();
-    textureID = params->getTextureID();
-    currentRow = 1;
-    currentFrame = 1;
-}
+using namespace std;
+
+SDLGameObject::SDLGameObject(const LoaderParams *params) : GameObject{params}, position{params->getX(), params->getY()}, velocity{0, 0}, width{params->getWidth()}, height{params->getHeight()}, textureID{params->getTextureID()}, currentRow{1}, currentFrame{1} {}
 
 void SDLGameObject::draw()
 {
-    TheTextureManager::Instance()->drawFrame(textureID, x, y, width, height, currentRow, currentFrame, TheGame::Instance()->getRenderer());
+    TheTextureManager::Instance()->drawFrame(textureID, static_cast<int>(position.getX()), static_cast<int>(position.getY()), width, height, currentRow, currentFrame, TheGame::Instance()->getRenderer());
 }
 
-void SDLGameObject::update() {}
+void SDLGameObject::update()
+{
+    position += velocity;
+}
 
 void SDLGameObject::clean() {}

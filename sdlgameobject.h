@@ -3,14 +3,15 @@
 
 #include <string>
 #include "gameobject.h"
+#include "vector.h"
 
 class LoaderParams;
 
 class SDLGameObject : public GameObject
 {
 protected:
-    int x;
-    int y;
+    Vector2D position;
+    Vector2D velocity;
 
     int width;
     int height;
