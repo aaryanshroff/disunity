@@ -7,7 +7,7 @@
 
 using namespace std;
 
-SDLGameObject::SDLGameObject(const LoaderParams *params) : GameObject{params}, position{params->getX(), params->getY()}, velocity{0, 0}, acceleration{0, 0}, width{params->getWidth()}, height{params->getHeight()}, textureID{params->getTextureID()}, currentRow{1}, currentFrame{1} {}
+SDLGameObject::SDLGameObject(const LoaderParams *params) : GameObject{params}, position{static_cast<float>(params->getX()), static_cast<float>(params->getY())}, velocity{0, 0}, acceleration{0, 0}, width{params->getWidth()}, height{params->getHeight()}, currentRow{1}, currentFrame{1}, textureID{params->getTextureID()} {}
 
 void SDLGameObject::draw()
 {
