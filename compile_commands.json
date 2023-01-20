@@ -1,0 +1,130 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++14",
+      "-Wall",
+      "-g",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "main.o",
+      "main.cc"
+    ],
+    "directory": "/Users/aaryanshroff/Code/disunity",
+    "file": "/Users/aaryanshroff/Code/disunity/main.cc",
+    "output": "/Users/aaryanshroff/Code/disunity/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++14",
+      "-Wall",
+      "-g",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "game.o",
+      "game.cc"
+    ],
+    "directory": "/Users/aaryanshroff/Code/disunity",
+    "file": "/Users/aaryanshroff/Code/disunity/game.cc",
+    "output": "/Users/aaryanshroff/Code/disunity/game.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++14",
+      "-Wall",
+      "-g",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "texturemanager.o",
+      "texturemanager.cc"
+    ],
+    "directory": "/Users/aaryanshroff/Code/disunity",
+    "file": "/Users/aaryanshroff/Code/disunity/texturemanager.cc",
+    "output": "/Users/aaryanshroff/Code/disunity/texturemanager.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++14",
+      "-Wall",
+      "-g",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "loaderparams.o",
+      "loaderparams.cc"
+    ],
+    "directory": "/Users/aaryanshroff/Code/disunity",
+    "file": "/Users/aaryanshroff/Code/disunity/loaderparams.cc",
+    "output": "/Users/aaryanshroff/Code/disunity/loaderparams.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++14",
+      "-Wall",
+      "-g",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "gameobject.o",
+      "gameobject.cc"
+    ],
+    "directory": "/Users/aaryanshroff/Code/disunity",
+    "file": "/Users/aaryanshroff/Code/disunity/gameobject.cc",
+    "output": "/Users/aaryanshroff/Code/disunity/gameobject.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++14",
+      "-Wall",
+      "-g",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "sdlgameobject.o",
+      "sdlgameobject.cc"
+    ],
+    "directory": "/Users/aaryanshroff/Code/disunity",
+    "file": "/Users/aaryanshroff/Code/disunity/sdlgameobject.cc",
+    "output": "/Users/aaryanshroff/Code/disunity/sdlgameobject.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++14",
+      "-Wall",
+      "-g",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "player.o",
+      "player.cc"
+    ],
+    "directory": "/Users/aaryanshroff/Code/disunity",
+    "file": "/Users/aaryanshroff/Code/disunity/player.cc",
+    "output": "/Users/aaryanshroff/Code/disunity/player.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++14",
+      "-Wall",
+      "-g",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "vector.o",
+      "vector.cc"
+    ],
+    "directory": "/Users/aaryanshroff/Code/disunity",
+    "file": "/Users/aaryanshroff/Code/disunity/vector.cc",
+    "output": "/Users/aaryanshroff/Code/disunity/vector.o"
+  }
+]
