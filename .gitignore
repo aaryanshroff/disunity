@@ -36,3 +36,5 @@
 
 # VS Code workspace settings
 .vscode
+
+.cache/
