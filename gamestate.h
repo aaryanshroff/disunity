@@ -1,4 +1,7 @@
 // Abstract class for game states
+#ifndef _GAME_STATE_H_
+#define _GAME_STATE_H_
+
 #include <string>
 
 class GameState {
@@ -10,4 +13,6 @@ public:
   virtual bool onExit() = 0;
 
   virtual std::string getStateID() const = 0;
-};
+}; // class GameState
+
+#endif
