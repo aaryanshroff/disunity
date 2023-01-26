@@ -4,6 +4,7 @@
 #define _GAME_STATE_MACHINE_H_
 
 #include "gamestate.h"
+#include <vector>
 
 class GameStateMachine {
 public:
@@ -14,6 +15,8 @@ public:
   void changeState(GameState *state);
   void popState();
 
+private:
+  std::vector<GameState *> states;
 }; // class GameStateMachine
 
 #endif

@@ -1,6 +1,7 @@
 #ifndef _GAME_H_
 #define _GAME_H_
 
+#include "gamestatemachine.h"
 #include "player.h"
 #include <SDL2/SDL.h> // cannot use forward declaration since SDL_Rect is not a pointer
 #include <vector>
@@ -19,6 +20,8 @@ class Game {
 
   bool running;
   int currentFrame;
+
+  GameStateMachine *gameStateMachine;
 
   Game(); // private ctor to enable singleton pattern.
           // to instantiate, use the static instance() method instead.

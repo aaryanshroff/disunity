@@ -2,6 +2,7 @@
 #include "gameobject.h"
 #include "inputhandler.h"
 #include "loaderparams.h"
+#include "menustate.h"
 #include "texturemanager.h"
 #include <SDL2/SDL_image.h> // IMG_Load (not needed in game.h)
 #include <iostream>         // std::cout
@@ -68,6 +69,9 @@ bool Game::init(const char *title, int x, int y, int width, int height,
   gameObjects.push_back(
       new Player(new LoaderParams(100, 100, 430, 519, "zombie")));
 
+  gameStateMachine = new GameStateMachine();
+  gameStateMachine->changeState(new MenuState());
+
   running = true;
 
   return true;
@@ -89,7 +93,13 @@ void Game::render() {
   SDL_RenderPresent(sdl_renderer);
 }
 
-void Game::handleEvents() { TheInputHandler::Instance()->update(); }
+void Game::handleEvents() {
+  TheInputHandler::Instance()->update();
+
+  if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_RETURN)) {
+    gameStateMachine->changeState(new MenuState());
+  }
+}
 
 void Game::clean() {
   cout << "Cleaning game" << endl;
