@@ -3,6 +3,7 @@
 #include "inputhandler.h"
 #include "loaderparams.h"
 #include "menustate.h"
+#include "playstate.h"
 #include "texturemanager.h"
 #include <SDL2/SDL_image.h> // IMG_Load (not needed in game.h)
 #include <iostream>         // std::cout
@@ -97,7 +98,7 @@ void Game::handleEvents() {
   TheInputHandler::Instance()->update();
 
   if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_RETURN)) {
-    gameStateMachine->changeState(new MenuState());
+    gameStateMachine->changeState(new PlayState());
   }
 }
 
