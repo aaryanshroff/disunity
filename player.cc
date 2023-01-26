@@ -9,6 +9,10 @@ Player::Player(const LoaderParams *params) : SDLGameObject{params} {}
 void Player::draw() { SDLGameObject::draw(); }
 
 void Player::update() {
+  // to stop the player from moving when no key is pressed
+  velocity.setX(0);
+  velocity.setY(0);
+
   if (TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_RIGHT)) {
     velocity.setX(2);
   }
