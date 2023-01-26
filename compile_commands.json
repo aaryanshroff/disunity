@@ -126,5 +126,21 @@
     "directory": "/Users/aaryanshroff/Code/disunity",
     "file": "/Users/aaryanshroff/Code/disunity/vector.cc",
     "output": "/Users/aaryanshroff/Code/disunity/vector.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++14",
+      "-Wall",
+      "-g",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "inputhandler.o",
+      "inputhandler.cc"
+    ],
+    "directory": "/Users/aaryanshroff/Code/disunity",
+    "file": "/Users/aaryanshroff/Code/disunity/inputhandler.cc",
+    "output": "/Users/aaryanshroff/Code/disunity/inputhandler.o"
   }
 ]

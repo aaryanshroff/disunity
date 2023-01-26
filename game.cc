@@ -1,5 +1,6 @@
 #include "game.h"
 #include "gameobject.h"
+#include "inputhandler.h"
 #include "loaderparams.h"
 #include "texturemanager.h"
 #include <SDL2/SDL_image.h> // IMG_Load (not needed in game.h)
@@ -88,21 +89,11 @@ void Game::render() {
   SDL_RenderPresent(sdl_renderer);
 }
 
-void Game::handleEvents() {
-  SDL_Event event;
-  if (SDL_PollEvent(&event)) {
-    switch (event.type) {
-    case SDL_QUIT:
-      running = false;
-      break;
-    default:
-      break;
-    }
-  }
-}
+void Game::handleEvents() { TheInputHandler::Instance()->update(); }
 
 void Game::clean() {
   cout << "Cleaning game" << endl;
+  TheInputHandler::Instance()->clean();
   SDL_DestroyWindow(sdl_window);
   SDL_DestroyRenderer(sdl_renderer);
   SDL_Quit();

@@ -10,7 +10,7 @@ class InputHandler {
   // to instantiate, use the static instance() method instead.
   InputHandler();
 
-  Uint8 *keyStates;
+  const Uint8 *keyStates;
 
   void onKeyDown();
   void onKeyUp();
@@ -25,5 +25,7 @@ public:
   bool isKeyDown(SDL_Scancode key) const;
 
 }; // class InputHandler
+
+typedef InputHandler TheInputHandler; // alias to indicate singleton
 
 #endif

@@ -3,7 +3,7 @@ CPPFLAGS = -Iinclude
 CXXFLAGS = -std=c++14 -Wall -g  -Llib 
 LDFLAGS = -Llib
 LDLIBS = -lsdl2 -lsdl2_image 
-OBJECTS = main.o game.o texturemanager.o loaderparams.o gameobject.o sdlgameobject.o player.o vector.o 
+OBJECTS = main.o game.o texturemanager.o loaderparams.o gameobject.o sdlgameobject.o player.o vector.o inputhandler.o
 DEPENDS = ${OBJECTS:.o=.d}
 EXEC = pong.o
 

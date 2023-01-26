@@ -3,6 +3,12 @@
 
 InputHandler::InputHandler() {}
 
+InputHandler *InputHandler::instance = nullptr;
+
+InputHandler *InputHandler::Instance() {
+  return instance == nullptr ? instance = new InputHandler() : instance;
+}
+
 void InputHandler::update() {
   SDL_Event event;
 
@@ -17,9 +23,18 @@ void InputHandler::update() {
     case SDL_KEYUP:
       onKeyUp();
       break;
-
     default:
       break;
     }
   }
+}
+
+void InputHandler::clean() {}
+
+void InputHandler::onKeyUp() { keyStates = SDL_GetKeyboardState(0); }
+
+void InputHandler::onKeyDown() { keyStates = SDL_GetKeyboardState(0); }
+
+bool InputHandler::isKeyDown(SDL_Scancode key) const {
+  return keyStates != 0 && keyStates[key] == 1;
 }
