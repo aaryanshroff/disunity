@@ -23,3 +23,15 @@ void GameStateMachine::popState() {
     states.pop_back();
   }
 }
+
+void GameStateMachine::update() {
+  if (!states.empty()) {
+    states.back()->update();
+  }
+}
+
+void GameStateMachine::render() {
+  if (!states.empty()) {
+    states.back()->render();
+  }
+}
