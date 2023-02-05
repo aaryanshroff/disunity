@@ -5,8 +5,9 @@
 #include <SDL2/SDL.h>
 #include <vector>
 
+enum mouseButtons { LEFT = 0, MIDDLE = 1, RIGHT = 2 };
+
 class InputHandler {
-  enum mouseButtons { LEFT = 0, MIDDLE = 1, RIGHT = 2 };
 
   // singleton pattern
   static InputHandler *instance;
