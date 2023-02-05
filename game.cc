@@ -78,18 +78,12 @@ bool Game::init(const char *title, int x, int y, int width, int height,
   return true;
 }
 
-void Game::update() {
-  for (auto &gameObject : gameObjects) {
-    gameObject->update();
-  }
-};
+void Game::update() { gameStateMachine->update(); };
 
 void Game::render() {
   SDL_RenderClear(sdl_renderer); // clear to the draw color set in init()
 
-  for (auto &gameObject : gameObjects) {
-    gameObject->draw();
-  }
+  gameStateMachine->render();
 
   SDL_RenderPresent(sdl_renderer);
 }
