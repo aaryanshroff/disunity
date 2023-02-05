@@ -142,5 +142,69 @@
     "directory": "/Users/aaryanshroff/Code/disunity",
     "file": "/Users/aaryanshroff/Code/disunity/inputhandler.cc",
     "output": "/Users/aaryanshroff/Code/disunity/inputhandler.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++14",
+      "-Wall",
+      "-g",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "menustate.o",
+      "menustate.cc"
+    ],
+    "directory": "/Users/aaryanshroff/Code/disunity",
+    "file": "/Users/aaryanshroff/Code/disunity/menustate.cc",
+    "output": "/Users/aaryanshroff/Code/disunity/menustate.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++14",
+      "-Wall",
+      "-g",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "menubutton.o",
+      "menubutton.cc"
+    ],
+    "directory": "/Users/aaryanshroff/Code/disunity",
+    "file": "/Users/aaryanshroff/Code/disunity/menubutton.cc",
+    "output": "/Users/aaryanshroff/Code/disunity/menubutton.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++14",
+      "-Wall",
+      "-g",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "playstate.o",
+      "playstate.cc"
+    ],
+    "directory": "/Users/aaryanshroff/Code/disunity",
+    "file": "/Users/aaryanshroff/Code/disunity/playstate.cc",
+    "output": "/Users/aaryanshroff/Code/disunity/playstate.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++14",
+      "-Wall",
+      "-g",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "gamestatemachine.o",
+      "gamestatemachine.cc"
+    ],
+    "directory": "/Users/aaryanshroff/Code/disunity",
+    "file": "/Users/aaryanshroff/Code/disunity/gamestatemachine.cc",
+    "output": "/Users/aaryanshroff/Code/disunity/gamestatemachine.o"
   }
 ]
