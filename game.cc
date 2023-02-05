@@ -110,3 +110,5 @@ void Game::quit() { running = false; }
 bool Game::isRunning() const { return running; }
 
 SDL_Renderer *Game::getRenderer() const { return sdl_renderer; }
+
+GameStateMachine *Game::getStateMachine() const { return gameStateMachine; }

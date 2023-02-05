@@ -39,6 +39,7 @@ public:
   // getters
   bool isRunning() const;
   SDL_Renderer *getRenderer() const;
+  GameStateMachine *getStateMachine() const;
 
 }; // class Game
 
