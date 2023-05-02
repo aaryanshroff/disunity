@@ -9,7 +9,7 @@
 class MenuState : public GameState {
   static const std::string menuID;
 
-  std::vector<GameObject *>
+  std::vector<std::unique_ptr<GameObject>>
       gameObjects; // pointer because we want to use polymorphism
 
   // callback functions for MenuButtons

@@ -12,13 +12,13 @@ const string MenuState::menuID = "MENU";
 string MenuState::getStateID() const { return menuID; }
 
 void MenuState::update() {
-  for (GameObject *gameObject : gameObjects) {
+  for (const auto &gameObject : gameObjects) {
     gameObject->update();
   }
 }
 
 void MenuState::render() {
-  for (GameObject *gameObject : gameObjects) {
+  for (const auto &gameObject : gameObjects) {
     gameObject->draw();
   }
 }
@@ -37,21 +37,23 @@ bool MenuState::onEnter() {
 
   // create game objects
   // TODO: Use smart pointers
-  GameObject *playButton = new MenuButton(
-      new LoaderParams(100, 100, 400, 100, "playbutton"), menuToPlay);
-  GameObject *exitButton = new MenuButton(
-      new LoaderParams(100, 300, 400, 100, "exitbutton"), exitFromMenu);
+  std::unique_ptr<GameObject> playButton =
+      std::make_unique<MenuButton>(MenuButton(
+          new LoaderParams(100, 100, 400, 100, "playbutton"), menuToPlay));
+  std::unique_ptr<GameObject> exitButton =
+      std::make_unique<MenuButton>(MenuButton(
+          new LoaderParams(100, 300, 400, 100, "exitbutton"), exitFromMenu));
 
   // add game objects to vector
-  gameObjects.push_back(playButton);
-  gameObjects.push_back(exitButton);
+  gameObjects.push_back(std::move(playButton));
+  gameObjects.push_back(std::move(exitButton));
 
   cout << "Entering MenuState" << endl;
   return true;
 }
 
 bool MenuState::onExit() {
-  for (GameObject *gameObject : gameObjects) {
+  for (const auto &gameObject : gameObjects) {
     gameObject->clean();
   }
 
