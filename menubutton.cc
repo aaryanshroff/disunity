@@ -16,13 +16,13 @@ void MenuButton::draw() {
 }
 
 void MenuButton::update() {
-  Vector2D *pMousePos = TheInputHandler::Instance()->getMousePosition();
+  Vector2D *mousePos = TheInputHandler::Instance()->getMousePosition();
 
   // if mouse is within bounds of button
-  if (pMousePos->getX() < (position.getX() + width) &&
-      pMousePos->getX() > position.getX() &&
-      pMousePos->getY() < (position.getY() + height) &&
-      pMousePos->getY() > position.getY()) {
+  if (mousePos->getX() < (position.getX() + width) &&
+      mousePos->getX() > position.getX() &&
+      mousePos->getY() < (position.getY() + height) &&
+      mousePos->getY() > position.getY()) {
     currentFrame = MOUSE_OVER;
     // if mouse is clicked
     if (TheInputHandler::Instance()->getMouseButtonState(LEFT)) {
