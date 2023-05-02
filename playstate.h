@@ -2,8 +2,13 @@
 #define _PLAY_STATE_H_
 
 #include "gamestate.h"
+#include <vector>
+
+class GameObject;
 
 class PlayState : public GameState {
+  std::vector<GameObject *> gameObjects;
+
 public:
   virtual void update();
   virtual void render();
